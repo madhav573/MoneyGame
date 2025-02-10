@@ -9,6 +9,9 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
+window.addEventListener('load', playAudioAndStartGame);
+
+
 // Start the background music when the page is loaded
 window.onload = function () {
     const bgm = document.getElementById('bgm');
