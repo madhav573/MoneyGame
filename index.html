@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  
+   <!-- Audio element for Background Music -->
+    <audio id="bgm" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  
+<button id="music-toggle-button" onclick="toggleMusic()" style="position: absolute; top: 20px; right: 20px; background-color: #4CAF50; color: white; border-radius: 50%; padding: 12px; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); transition: background-color 0.3s;">
+    🎶
+</button>
+
+  
+<body class="light-mode">
+    <div class="game-container">
+        <h1 id="welcome-heading">Welcome to the Game!</h1>
+        <div id="welcome-message"></div>
+
+        <div id="user-input">
+            <label for="username">Enter your username:</label>
+            <input type="text" id="username" placeholder="Username">
+            <div>
+                <button onclick="startGame()">Start Journey<br>(New Player)</button>
+                <button onclick="loadGame()">Load Game<br>existing player</button>
+            </div>
+        </div>
+
+        <div id="game-controls" style="display:none;">
+            <p><b>Bank Balance:</b> $<span id="bank-balance">0</span></p>
+            <p><b>Next Dollar In:</b> <span id="next-dollar">60</span> seconds</p>
+
+            <div class="progress-bar-container">
+                <div id="hunger-bar" class="progress-bar">Hunger: 100%</div>
+            </div>
+            <div class="progress-bar-container">
+                <div id="sleep-bar" class="progress-bar">Sleep: 100%</div>
+            </div>
+
+            <button onclick="openShop()">Shop</button>
+            <button onclick="sleep()">Sleep</button>
+            <button onclick="saveAndExitGame()">Save<br>&<br>Exit</button>
+        </div>
+
+        <div id="shop">
+            <h3>Shop</h3>
+            <button onclick="buyFood('Bread', 10, 20)">Buy Bread ($10) [+20 Hunger]</button>
+            <button onclick="buyFood('Pizza', 20, 40)">Buy Pizza ($20) [+40 Hunger]</button>
+            <button onclick="buyFood('Juice', 5, 10)">Buy Juice ($5) [+10 Hunger]</button>
+            <button onclick="closeShop()">Close Shop</button>
+        </div>
+
+        <div id="blackout">Sleeping... Come back after 7.5 hours!</div>
+
+        <button id="theme-toggle-button" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
